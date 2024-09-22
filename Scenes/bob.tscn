@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=3 uid="uid://cn71c7brbejh7"]
+
+[ext_resource type="Texture2D" uid="uid://4j70vcwuvk4c" path="res://Assets/Sprites/Bob_16x16.png" id="1_v0vqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22bwu"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mdx4"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a25se"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl2j3"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk4gj"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(0, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgvu2"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(16, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqpyv"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(32, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liurq"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(48, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6327s"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(64, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f060"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(80, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuxd6"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(96, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii65p"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(112, 192, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev8m4"]
+atlas = ExtResource("1_v0vqg")
+region = Rect2(128, 192, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihqq7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22bwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mdx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a25se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl2j3")
+}],
+"loop": true,
+"name": &"Panic",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk4gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgvu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqpyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liurq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6327s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f060")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuxd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii65p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev8m4")
+}],
+"loop": false,
+"name": &"Radio",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_smnkg"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Bob" type="AnimatedSprite2D"]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_ihqq7")
+animation = &"Radio"
+autoplay = "Panic"
+frame = 8
+frame_progress = 1.0
+script = SubResource("GDScript_smnkg")

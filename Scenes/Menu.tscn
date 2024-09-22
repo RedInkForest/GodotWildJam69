@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1p1chw86k30"]
+
+[ext_resource type="Theme" uid="uid://bygdrsewpl0l7" path="res://Assets/Themes/ButtonTheme.tres" id="1_6x0bi"]
+[ext_resource type="Script" path="res://Scenes/SceneCode/MenuScreen.gd" id="1_m7hlq"]
+[ext_resource type="Texture2D" uid="uid://khfg8j5ea77k" path="res://Assets/Sprites/Dimensional_Portal.png" id="3_yaba2"]
+[ext_resource type="Texture2D" uid="uid://cqbnl52cicegq" path="res://Assets/Sprites/Croissant.png" id="4_g6bg7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsyyq"]
+atlas = ExtResource("3_yaba2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an5tf"]
+atlas = ExtResource("3_yaba2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bflci"]
+atlas = ExtResource("3_yaba2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbrut"]
+atlas = ExtResource("3_yaba2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2yox"]
+atlas = ExtResource("3_yaba2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgjoi"]
+atlas = ExtResource("3_yaba2")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6mr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsyyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an5tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bflci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbrut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2yox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgjoi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MenuScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_6x0bi")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_m7hlq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(208, 240)
+rotation = -0.0558507
+scale = Vector2(39.8469, 16.5)
+sprite_frames = SubResource("SpriteFrames_x6mr0")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 224)
+rotation = 2.41379
+scale = Vector2(16.5, 16.5)
+texture = ExtResource("4_g6bg7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.0784314, 0.133333, 0.25098, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0, 0.87451, 1)
+theme_override_colors/font_outline_color = Color(0.894118, 0, 0.87451, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Void Croissant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 16
+
+[node name="Play" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.893981, 0.000539449, 0.874394, 1)
+theme_override_font_sizes/font_size = 32
+text = "Begin"
+flat = true
+
+[node name="About" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.894118, 0, 0.87451, 1)
+theme_override_font_sizes/font_size = 32
+text = "About"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.894118, 0, 0.87451, 1)
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+flat = true

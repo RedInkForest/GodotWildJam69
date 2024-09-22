@@ -1,0 +1,204 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5uj4om5rh83l"]
+
+[ext_resource type="Texture2D" uid="uid://ir42rtrjumrl" path="res://icon.svg" id="1_nb3xp"]
+
+[sub_resource type="GDScript" id="GDScript_nbtby"]
+script/source = "@tool
+extends MarginContainer
+
+@export_node_path(\"GridContainer\") var ButtonGrid
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	for button in get_node(ButtonGrid).get_children():
+		button.text = button.name.lstrip(\"Button\")
+		button.connect(\"pressed\",level_pressed.bind(int(button.text)))
+
+func level_pressed(level: int):
+	print(\"res://Scenes/level\" + str(level) + \".tscn\")
+	SceneManager.change_scene(\"res://Scenes/level_\" + str(level) + \".tscn\")
+
+func _unhandled_key_input(event):
+	if event.is_action(\"ui_cancel\"):
+		SceneManager.change_scene()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+"
+
+[sub_resource type="Gradient" id="Gradient_5hqxu"]
+colors = PackedColorArray(0.676505, 0.676505, 0.676505, 0.847059, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8jg7q"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cj560"]
+seamless = true
+color_ramp = SubResource("Gradient_5hqxu")
+noise = SubResource("FastNoiseLite_8jg7q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17j0a"]
+texture = SubResource("NoiseTexture2D_cj560")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cifm2"]
+texture = ExtResource("1_nb3xp")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="LevelSelect" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = SubResource("GDScript_nbtby")
+ButtonGrid = NodePath("HBoxContainer/Levels/Grid")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Levels" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(0.0784314, 0.133333, 0.25098, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_17j0a")
+
+[node name="Grid" type="GridContainer" parent="HBoxContainer/Levels"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="Button1" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "1"
+
+[node name="Button2" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "2"
+
+[node name="Button3" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "3"
+
+[node name="Button4" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "4"
+
+[node name="Button5" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "5"
+
+[node name="Button6" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "6"
+
+[node name="Button7" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "7"
+
+[node name="Button8" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "8"
+
+[node name="Button9" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "9"
+
+[node name="Button10" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "10"
+
+[node name="Button11" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "11"
+
+[node name="Button12" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "12"
+
+[node name="Button13" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "13"
+
+[node name="Button14" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "14"
+
+[node name="Button15" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "15"
+
+[node name="Button16" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "16"
+
+[node name="Button17" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "17"
+
+[node name="Button18" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "18"
+
+[node name="Button19" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "19"
+
+[node name="Button20" type="Button" parent="HBoxContainer/Levels/Grid"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_type_variation = &"LevelButton"
+text = "20"
+
+[node name="Preview" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(0.445691, 0.445691, 0.445691, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_cifm2")
